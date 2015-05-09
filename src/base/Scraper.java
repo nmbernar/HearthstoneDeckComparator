@@ -13,8 +13,8 @@ public class Scraper {
 		try {
 			Document doc = Jsoup.connect("http://www.hearthhead.com/decks?filter=na=mech+mage").get();
 			String cssPath = "a.c8";
-			Element e = doc.select(cssPath).first(); //null for some reason
-			System.out.println(e.attr("href"));
+			Elements e = doc.select("div > a.c8"); //null for some reason
+			System.out.println(e.size());
 		} catch(IOException e){
 			e.printStackTrace();
 		} finally {
